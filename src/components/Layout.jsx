@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { Routes, Route } from "react-router-dom";
+import Home from 'components/Home';
+import Login from 'components/authentication/Login';
+import Error404 from 'components/error/Error404';
 
 class Layout extends Component {
 	render() {
 		return (
-			<div className="anonymous-layout">
-    			<h1 className="display-1">M<i className="bi bi-camera-fill"></i>ments</h1>
-    			<div className="input-group mb-3">
-					<input type="text" className="form-control" placeholder="Buscar" aria-label="Buscar por nombre de usuario" autoFocus/>
-					<button type="button" id="search_button"><i className="bi bi-search"></i></button>
-				</div>
-				<div className="p-3"><a href="/signup">Registrarme</a></div>
-				<div className="p-2">¿Ya tienes cuenta?, <a href="/signin">Identificarme</a></div>
-			</div>
-		)
+			<Routes>
+				<Route exact path="/" element={<Home/>}>
+					<Route path="/auth/signin" element={<Login/>}/>
+				</Route>
+				<Route path="*" element={<Error404/>}/>
+			</Routes>
+		);
 	}
 }
 
