@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export const Login = (props) => {
 	const navigate = useNavigate();
 	const [didMount, setDidMount] = useState(false);
-	const [formError, setFormError] = useState();
+	//const [formError, setFormError] = useState();
 
 	useEffect(() => {
 		const goBack = (event) => {
@@ -26,7 +26,20 @@ export const Login = (props) => {
 		event.preventDefault();
 
 		try {
-			var form = document.forms['login_form'];
+			const userData = {
+				username: 'cosme_fulanito',
+				email: 'cosme.fulanito@gmail.com',
+				profilePicture: '/img/default_profile_picture.png',
+				accessToken: 'blabla',
+				refreshToken: 'blabla'
+			};
+				
+			navigate('/user/profile', {
+				replace: true,
+				state: userData
+			});
+
+			/*var form = document.forms['login_form'];
 
 			const response = await fetch('https://localhost:5001/api/auth/signin', {
 				method: "POST",
@@ -36,7 +49,7 @@ export const Login = (props) => {
 			if(response.ok) {
 				const userData = await response.json();
 				
-				navigate('/profile/dashboard', {
+				navigate('/user/profile', {
 					replace: true,
 					state: userData
 				});
@@ -57,7 +70,7 @@ export const Login = (props) => {
 						title: "Ocurrió un problema al procesar la solicitud.",
 						message: await response.text()
 					});
-			}
+			}*/
 		}
 		catch(error) {
 			return {
@@ -83,7 +96,7 @@ export const Login = (props) => {
 			<div className="card-body">
 		    	<form id="login_form" name="loginForm" onSubmit={doLogin}>
 		    		<legend>Accede a tu cuenta</legend><hr/>
-		    		{formError && <p className="text-danger" style={{'whiteSpace': 'pre-wrap'}}>{`${formError.title}\nCausa: ${formError.message}`}</p>}
+		    		{/*formError && <p className="text-danger" style={{'whiteSpace': 'pre-wrap'}}>{`${formError.title}\nCausa: ${formError.message}`}</p>*/}
 		    		<div className="mb-3">
 		    			<input type="text" className="form-control" name="email" placeholder="Usuario o correo electrónico" autoFocus/>
 		    		</div>

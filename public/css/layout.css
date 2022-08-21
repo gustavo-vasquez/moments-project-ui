@@ -61,15 +61,16 @@
 :root {
 	--default-color-theme: #1aa11e;
 	--default-border-color: rgb(26 161 30 / 25%);
+	--default-border-radius: 1.375rem;
 	--default-btn-bg-color: #80f384;
 	--default-btn-hover-bg-color: #acffae;
 	--default-btn-focus-bg-color: #acffae;
 	--default-btn-border-color: #46ab46;
+	--default-element-background-color: #80f3842b;
 }
 
 body {
-	font-family: 'Work Sans';
-	font-size: 1rem;
+	font-family: 'Inter';
 }
 
 a{
@@ -94,6 +95,7 @@ a{
 	background-size: cover;
 	filter: grayscale(1);
 	opacity: 0.1;
+	z-index: -1;
 }
 
 /* Clases propias */
@@ -113,13 +115,13 @@ a{
 	font-size: 70%;
 }
 
-.anonymous-layout > .input-group {
+.anonymous-layout > #search_wrapper {
 	left: 50%;
 	transform: translateX(-50%);
 }
 
 @media (max-width: 575px) {
-	.anonymous-layout > .input-group {
+	.anonymous-layout > #search_wrapper {
 		width: 90%;
 	}
 
@@ -129,7 +131,7 @@ a{
 }
 
 @media (min-width: 576px) and (max-width: 991px) {
-	.anonymous-layout > .input-group {
+	.anonymous-layout > #search_wrapper {
 		width: 75%;
 	}
 
@@ -139,7 +141,7 @@ a{
 }
 
 @media (min-width: 992px) {
-	.anonymous-layout > .input-group {
+	.anonymous-layout > #search_wrapper {
 		width: 50%;
 	}
 
@@ -183,17 +185,17 @@ a{
 
 /* Cambios a clases de Bootstrap */
 
-.anonymous-layout > .input-group > .form-control {
+#search_wrapper > .form-control {
 	border-color: dimgray;
 }
 
-.anonymous-layout > .input-group > .form-control:focus {
+#search_wrapper > .form-control:focus {
 	border-color: dimgray;
 	box-shadow: 1px 1px 0 0rem rgb(20 22 25 / 40%);
 }
 
 .form-control {
-	border-radius: 1.375rem !important;
+	border-radius: var(--default-border-radius) !important;
 }
 
 .form-control:focus, .form-check-input:focus {
@@ -224,4 +226,61 @@ a{
 	border-color: var(--default-btn-border-color);
 	color: black;
 	box-shadow: none !important;
+}
+
+.navbar > div {
+	background-color: var(--default-element-background-color);
+	border-radius: var(--default-border-radius);
+}
+
+.navbar-brand, .navbar-nav {
+	font-size: x-large;
+}
+
+.nav-link {
+	color: black;
+}
+
+.nav-text-username {
+	width: 114px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.nav-profile-picture {
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: var(--default-border-radius);
+}
+
+/* Columna izquierda */
+
+.user-information {
+	text-align: center;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+
+.user-information > img {
+	display: block;
+	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.statistics-wrapper {
+	display: flex;
+	justify-content: center;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.statistics-wrapper > div:nth-child(odd) {
+	width: 30%;
+}
+
+.statistics-wrapper > div:nth-child(even) {
+	width: 35%;
 }
