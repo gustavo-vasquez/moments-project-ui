@@ -8,7 +8,7 @@ export const Profile = (props) => {
 
 	function thumbnail_loop() {
 		let thumbs = [];
-		for(let i=0;i<12;i++) {
+		for(let i=0;i<16;i++) {
 			thumbs.push(<div className='col-md-3' key={i}>
 			<img className='img-fluid' src='https://dummyimage.com/600x400/000/fff' alt='post_thumbnail'/>
 		</div>);
@@ -25,7 +25,7 @@ export const Profile = (props) => {
 			      <div className="d-flex mx-auto">
 			        <Search/>
 			      </div>
-			      <span className="navbar-text nav-text-username">{username}</span>
+			      <span className="nav-text-username">{username}</span>
 			      <ul className="navbar-nav">
 			        <li className="nav-item">
 			          <Link className="nav-link" to="/user/profile" title={email}><img className="img-fluid nav-profile-picture" src={profilePicture} alt="profile_picture"/></Link>
@@ -86,8 +86,8 @@ export const Profile = (props) => {
 								{thumbnail_loop()}
 							</div>
 						</div>
-						<div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabIndex="0">...</div>
-						<div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabIndex="0">...</div>
+						<div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabIndex="0">Coming soon...</div>
+						<div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabIndex="0">Coming soon...</div>
 						<div className="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabIndex="0">...</div>
 					</div>
 				</div>

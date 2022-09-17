@@ -79,12 +79,12 @@ a{
 }
 
 #root {
-	height: 100vh;
+	min-height: 100vh;
 }
 
 #root:before {
 	content: '';
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -253,6 +253,22 @@ a{
 	border-radius: var(--default-border-radius);
 }
 
+.navbar-brand:hover, .nav-link:hover {
+	color: var(--default-color-theme);
+}
+
+/*.nav-pills .nav-link.active {
+	background-color: var(--default-color-theme);
+}*/
+
+.nav-link.active {
+	background-color: transparent !important;
+    border-bottom: 2px solid var(--default-color-theme);
+    border-radius: unset;
+    color: black !important;
+    font-weight: bold;
+}
+
 /* Columna izquierda */
 
 .user-information, .post-thumbnails {
@@ -288,4 +304,9 @@ a{
 .post-thumbnails > * {
 	padding-top: calc(var(--bs-gutter-x) * .5);
 	padding-bottom: calc(var(--bs-gutter-x) * .5);
+}
+
+.post-thumbnails img {
+	width: 300px;
+	height: 300px;
 }
